@@ -1,0 +1,32 @@
+doctype html
+head
+ block head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://fonts.googleapis.com/css?family=Lato:300,300i,700' rel='stylesheet')
+  link(rel='stylesheet' href='/css/style.css')
+  link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+  title=`Natours | ${title}`
+//Header
+include _header
+    //
+      <button class="nav__el">Log in</button>
+      <button class="nav__el nav__el--cta">Sign up</button>
+// In video, this <main> element is wrongly called: <section class="overview">. So in pug template, please use main.main instead of section.overview
+
+
+
+//CONTENT
+
+block content 
+
+
+
+
+
+//FOOTER
+include _footer
+
+
+
+script(src='/js/bundle.js')

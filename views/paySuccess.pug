@@ -1,0 +1,49 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Payment Success
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    }
+    .container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+    color: green;
+    }
+    p {
+    font-size: 18px;
+    }
+    a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #28b487;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    }
+    a:hover {
+    background: #7dd56f;
+    }
+.container
+  h1 Payment Successful!
+  //- p.paystatus=`${status}`
+  //- p.paytxid=`${txnid}`
+  p Your payment was processed successfully.
+  p Thank you for your purchase!
+  a(href='/me') Go to My Account
+
+script(src='/js/bundle.js')
