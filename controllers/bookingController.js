@@ -34,7 +34,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   };
 
   const session = payuClient.paymentInitiate(paymentData);
-
+  res.setHeader('Content-Security-Policy', '');
   res.status(200).send(session);
 });
 

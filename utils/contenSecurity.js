@@ -15,8 +15,9 @@ exports.obj = {
   directives: {
     defaultSrc: [],
     connectSrc: ["'self'", ...connectSrcUrls],
-    scriptSrc: ["'self'", ...scriptSrcUrls],
+    scriptSrc: ["'self'", "'unsafe-inline'", ...scriptSrcUrls],
     styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+
     workerSrc: ["'self'", 'blob:'],
     objectSrc: [],
     imgSrc: ["'self'", 'blob:', 'data:', 'https:'],
