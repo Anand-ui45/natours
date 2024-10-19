@@ -57,7 +57,7 @@ const pro = (err, req, res) => {
     }
   } else {
     if (err.isOperational) {
-      console.log(err);
+     
       res.status(err.statusCode).render('error', {
         title: 'something went worng',
         msg: err.message,
@@ -84,7 +84,7 @@ module.exports = (err, req, res, next) => {
     dev(err, req, res);
   } else {
     // else if statement dosen't work right so i go with else block
-    console.log('entered');
+   
 
     let error = Object.assign({}, err);
     error.message = err.message; // Ensure message is copied

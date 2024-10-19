@@ -41,7 +41,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordChangedAt: req.body.passwordChangedAt,
   });
   const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
+
   if (newUser) {
     await new Email(newUser, url).sendWelcome();
     jwtTokenGenrator(newUser, 201, res);

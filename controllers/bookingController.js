@@ -32,13 +32,10 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     surl: `${req.protocol}://${req.get('host')}/me`, // Success URL
     furl: `${req.protocol}://${req.get('host')}/me`, // Failure URL
   };
-  try {
-    const session = payuClient.paymentInitiate(paymentData);
 
-    res.status(200).send(session);
-  } catch (err) {
-    console.log(err);
-  }
+  const session = payuClient.paymentInitiate(paymentData);
+
+  res.status(200).send(session);
 });
 
 exports.bookingSuccess = catchAsync(async (req, res) => {

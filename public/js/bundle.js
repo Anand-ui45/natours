@@ -2535,7 +2535,7 @@
     try {
       const res = await axios_default({
         method: "POST",
-        url: "http://localhost:3000/api/v1/users/login",
+        url: "/api/v1/users/login",
         data: {
           email,
           password
@@ -2555,7 +2555,7 @@
     try {
       const res = await axios_default({
         method: "GET",
-        url: "http://localhost:3000/api/v1/users/logout"
+        url: "/api/v1/users/logout"
       });
       if (res.data.status === "success") location.assign("/");
       showAlert("success", "Your now successfully loged out!");
@@ -2595,7 +2595,7 @@
   // public/js/updateSetings.js
   var updateSettings = async (data, type) => {
     try {
-      const url = type === "password" ? "http://localhost:3000/api/v1/users/changepassword" : "http://localhost:3000/api/v1/users/updateMe";
+      const url = type === "password" ? "/api/v1/users/changepassword" : "/api/v1/users/updateMe";
       const res = await axios_default({
         method: "PATCH",
         url,

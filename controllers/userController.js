@@ -5,18 +5,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const factory = require('./handelerFactory');
 
-// const upload = multer({ dest: 'public/img/users' });
 
-// const multerStorage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'public/img/users');
-//   },
-//   filename: (req, file, cb) => {
-//     const ext = file.mimetype.split('/')[1];
-//     const photo = `user-${req.user.id}-${Date.now()}.${ext}`;
-//     cb(null, photo);
-//   },
-// });
 
 const multerStorage = multer.memoryStorage();
 

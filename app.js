@@ -4,6 +4,7 @@ const AppError = require('./utils/appError');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const { xss } = require('express-xss-sanitizer');
+const compression = require('compression');
 const hpp = require('hpp');
 const app = express();
 const rateLimt = require('express-rate-limit');
@@ -16,8 +17,6 @@ const reviewRouter = require('./routes/reviewRouter');
 const bookingRouter = require('./routes/bookingRouter');
 const viewRouter = require('./routes/viewRouter');
 const contentSecurity = require('./utils/contenSecurity');
-
-console.log(process.env.NODE_ENV);
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -66,11 +65,7 @@ const limter = rateLimt({
 
 app.use('/api', limter);
 
-// app.use((req, res, next) => {
-//   const date = new Date().toISOString();//#ff0000
-//   console.log(date, req.cookies);
-//   next();
-// });
+app.use(compression());
 
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);
