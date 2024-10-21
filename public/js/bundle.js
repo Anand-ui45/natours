@@ -2545,7 +2545,7 @@
         showAlert("success", "Your loged in successfully!");
         window.setInterval(() => {
           location.assign("/");
-        }, 1500);
+        }, 1e3);
       }
     } catch (err) {
       showAlert("error", err.response.data.message);
@@ -2561,6 +2561,28 @@
       showAlert("success", "Your now successfully loged out!");
     } catch (err) {
       showAlert("error", "Error logging out! Try again");
+    }
+  };
+  var signup = async (name, email, password, passwordConfrim) => {
+    try {
+      const res = await axios_default({
+        method: "POST",
+        url: "/api/v1/users/signup",
+        data: {
+          name,
+          email,
+          password,
+          passwordConfrim
+        }
+      });
+      if (res.data.status === "success") {
+        showAlert("success", "Your signed in successfully!");
+        window.setInterval(() => {
+          location.assign("/");
+        }, 1e3);
+      }
+    } catch (err) {
+      showAlert("error", err.response.data.message);
     }
   };
 
@@ -2620,9 +2642,22 @@
   var logOutBtn = document.querySelector(".nav__el--logout");
   var updateForm = document.querySelector(".form-user-data");
   var passwordForm = document.querySelector(".form-user-settings");
+  var signupForm = document.querySelector(".form--signup");
   if (map) {
     const locations = JSON.parse(map.dataset.locations);
     displyMap(locations);
+  }
+  if (signupForm) {
+    console.log(signup, signupForm);
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.querySelector("#name").value;
+      const email = document.querySelector("#email").value;
+      const password = document.querySelector("#password").value;
+      const passwordConfrim = document.querySelector("#passwordConfirm").value;
+      console.log(name, email);
+      signup(name, email, password, passwordConfrim);
+    });
   }
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {

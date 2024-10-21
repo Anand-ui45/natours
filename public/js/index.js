@@ -1,6 +1,6 @@
 console.log('parcel ready');
 
-import { login, logout } from './login';
+import { login, logout, signup } from './login';
 import { displyMap } from './map';
 import { updateSettings } from './updateSetings';
 // DOM ELEMENTS
@@ -9,28 +9,26 @@ const loginForm = document.querySelector('.formL');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const updateForm = document.querySelector('.form-user-data');
 const passwordForm = document.querySelector('.form-user-settings');
+const signupForm = document.querySelector('.form--signup');
 
-// VALUES
-// document.addEventListener('DOMContentLoaded', () => {
-//   const payment = document.querySelector('.paystatus');
-//   const tid = document.querySelector('.paytxid');
-
-//   // Ensure values are retrieved correctly
-//   if (payment && tid) {
-//     const paymentStatus = payment.textContent.trim(); // Trim whitespace
-//     const transactionId = tid.textContent.trim(); // Trim whitespace
-//     pay(paymentStatus, transactionId);
-//     console.log('Payment Status:', paymentStatus);
-//     console.log('Transaction ID:', transactionId);
-//   } else {
-//     console.error('Payment status or transaction ID not found.');
-//   }
-// });
 //DElGATION
 
 if (map) {
   const locations = JSON.parse(map.dataset.locations);
   displyMap(locations);
+}
+
+if (signupForm) {
+  console.log(signup, signupForm);
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.querySelector('#name').value;
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+    const passwordConfrim = document.querySelector('#passwordConfirm').value;
+    console.log(name, email);
+    signup(name, email, password, passwordConfrim);
+  });
 }
 
 if (loginForm) {

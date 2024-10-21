@@ -21,12 +21,14 @@ routers.get('/me-get', async (req, res) => {
   }
 });
 
+routers.get('/signup', viewController.signUp);
+
 routers.get('/me', authController.protect, viewController.getAccount);
 
-routers.post(
-  '/submit-user-data',
-  authController.protect,
-  viewController.updateUserData
-);
+// routers.post(
+//   '/submit-user-data',
+//   authController.protect,
+//   viewController.updateUserData
+// );
 
 module.exports = routers;
