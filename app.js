@@ -7,6 +7,7 @@ const { xss } = require('express-xss-sanitizer');
 const compression = require('compression');
 const hpp = require('hpp');
 const app = express();
+const cors = require('cors');
 const rateLimt = require('express-rate-limit');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -21,6 +22,9 @@ const contentSecurity = require('./utils/contenSecurity');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 //Global middle ware functions
+app.use(cors());
+
+app.options('*', cors());
 //serveing static files
 app.use(express.static(path.join(__dirname, 'public')));
 //security security http
